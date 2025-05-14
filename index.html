@@ -4,17 +4,488 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clases de Música | Academia [ANAYA MUSIC AND SINGERS]</title>
-    <link rel="stylesheet" href="style.css">
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts: Una serif elegante para títulos y una sans-serif limpia para cuerpo -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- General Styles --- */
+        :root {
+            --primary-color: #1A2930; /* Azul oscuro / casi negro, muy elegante */
+            --secondary-color: #A98A6A; /* Dorado viejo / Bronce suave, para acentos */
+            --accent-color: #F0EAD6; /* Crema / Hueso, para fondos claros o texto sobre oscuro */
+            --background-color: #fdfcfb; /* Un blanco muy sutilmente cálido o gris muy claro */
+            --text-color: #333333; /* Gris oscuro para texto principal */
+            --light-text-color: var(--accent-color); /* Usar el color crema para texto sobre fondos oscuros */
+            --card-bg: #ffffff;
+            --font-headings: 'Playfair Display', serif; /* Fuente serif elegante para títulos */
+            --font-body: 'Roboto', sans-serif; /* Fuente sans-serif limpia para el cuerpo */
+            --shadow: 0 3px 10px rgba(0,0,0,0.08);
+            --shadow-strong: 0 6px 20px rgba(0,0,0,0.12);
+            --border-radius-main: 6px; /* Bordes ligeramente redondeados */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            overflow-x: hidden;
+            font-weight: 300; /* Texto más ligero por defecto */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1140px; /* Un poco más ancho para un look más espaciado */
+            margin: auto;
+            padding: 25px 0;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-headings);
+            color: var(--primary-color);
+            margin-bottom: 18px;
+            font-weight: 700; /* Asegurar que los títulos tengan peso */
+        }
+
+        h1 {
+            font-size: 2.8rem; /* Ligeramente más pequeño para sofisticación */
+            text-align: center;
+            color: var(--light-text-color);
+        }
+        h1 .fas {
+            color: var(--secondary-color);
+            margin: 0 12px;
+            font-size: 0.8em; /* Iconos un poco más pequeños en el H1 */
+        }
+
+        h2 {
+            font-size: 2.4rem;
+            text-align: center;
+            padding-top: 35px;
+            margin-bottom: 35px;
+            position: relative;
+        }
+        h2::after { /* Línea decorativa sutil */
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            margin-bottom: 18px;
+            font-size: 1rem; /* Tamaño base para parrafos */
+        }
+        strong, b {
+            font-weight: 700; /* Para destacar texto */
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--border-radius-main);
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            padding: 50px 0 30px;
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+        header .tagline {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--accent-color);
+            opacity: 0.9;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background: #fff; /* Fondo claro para la barra de navegación */
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #eee;
+        }
+        nav .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+        }
+        nav a {
+            color: var(--primary-color);
+            margin: 0 25px;
+            font-weight: 400; /* Un poco más de peso */
+            font-size: 1.05rem;
+            text-transform: uppercase; /* Un toque formal */
+            letter-spacing: 0.5px;
+        }
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            background: url('https://file.garden/Z8NltLNFC1q_3W8R/FONDOMUSICAL.png') no-repeat center center/cover;
+            color: var(--light-text-color);
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 41, 48, 0.65); /* Overlay más oscuro con el color primario */
+        }
+        #hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        #hero h2 {
+            font-family: var(--font-headings);
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: var(--light-text-color);
+            font-weight: 700;
+        }
+        #hero h2::after {
+            background: var(--secondary-color);
+        }
+        #hero p {
+            font-size: 1.25rem;
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--primary-color); /* Texto oscuro sobre fondo dorado */
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            border-radius: var(--border-radius-main);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+        .cta-button:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* --- Clases Section --- */
+        #clases {
+            padding: 50px 0;
+            background-color: #fff; /* Un fondo blanco para las cards de clases */
+        }
+        .clases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 25px;
+        }
+        .clase-item {
+            background: var(--card-bg); /* O usar var(--background-color) si quieres que se mezcle más */
+            padding: 25px;
+            border-radius: var(--border-radius-main);
+            box-shadow: var(--shadow);
+            text-align: left; /* Alinear texto a la izquierda para un look más formal */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eaeaea;
+        }
+        .clase-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-strong);
+        }
+        .clase-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+        .clase-item h3 {
+            margin-bottom: 10px; /* Menos espacio después del H3 de la card */
+        }
+        .clase-item p {
+            font-size: 0.95rem;
+            color: #555; /* Texto ligeramente más claro para descripción */
+        }
+
+        /* --- Galería Musical --- */
+        #galeria-musical-bg {
+            background-color: var(--accent-color); /* Fondo crema para la galería */
+            padding: 50px 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        #galeria .subtitulo-galeria {
+            text-align: center;
+            font-size: 1.15rem;
+            color: var(--text-color);
+            margin-bottom: 35px;
+            font-style: italic;
+        }
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+        .galeria-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius-main);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+        }
+        .galeria-item img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .galeria-item:hover img {
+            transform: scale(1.08);
+        }
+        .galeria-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26, 41, 48, 0.85) 0%, rgba(26, 41, 48, 0) 100%); /* Degradado sutil */
+            color: white;
+            width: 100%;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+            padding: 40px 20px 20px 20px; /* Más padding abajo */
+            text-align: left;
+            display: flex;
+            align-items: flex-end; /* Alinear texto abajo */
+        }
+        .galeria-item:hover .overlay {
+            opacity: 1;
+        }
+        .galeria-item .overlay span {
+            font-family: var(--font-headings);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        /* --- Contacto Section --- */
+        #contacto {
+            padding: 60px 0;
+            background: var(--background-color); /* Mantener el fondo general */
+        }
+        #contacto > p { /* El párrafo introductorio de la sección contacto */
+            text-align: center;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+        #contactForm {
+            max-width: 650px;
+            margin: 35px auto 0;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius-main);
+            box-shadow: var(--shadow-strong);
+            border: 1px solid #eaeaea;
+        }
+        .form-group {
+            margin-bottom: 22px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700; /* Labels más prominentes */
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius-main);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            background-color: #fdfdfd;
+        }
+        .form-group input[type="text"]:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(169, 138, 106, 0.2); /* Sutil resplandor al enfocar */
+        }
+        .form-group ::placeholder {
+            color: #aaa;
+            font-weight: 300;
+        }
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: var(--border-radius-main);
+            cursor: pointer;
+            font-size: 1.15rem;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .submit-button:hover {
+            background-color: #1DAE50;
+            transform: translateY(-2px);
+        }
+        .submit-button .fab {
+            margin-right: 12px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary-color);
+            color: var(--accent-color);
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+        footer p {
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+        footer p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- WhatsApp Float Button --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 55px; /* Ligeramente más pequeño */
+            height: 55px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50%; /* Círculo perfecto */
+            text-align: center;
+            font-size: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.08) translateY(-2px);
+            background-color: #1DAE50;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) { /* Ajustes para tablets */
+            .container {
+                width: 92%;
+            }
+            #hero h2 {
+                font-size: 2.5rem;
+            }
+            #hero p {
+                font-size: 1.15rem;
+            }
+        }
+
+        @media (max-width: 768px) { /* Ajustes para móviles */
+            h1 {
+                font-size: 2.2rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            #hero h2 {
+                font-size: 2.3rem;
+            }
+            #hero p {
+                font-size: 1.1rem;
+            }
+            nav .container {
+                flex-direction: column;
+            }
+            nav a {
+                margin: 10px 0;
+                font-size: 1rem;
+            }
+            .clases-grid, .galeria-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .clase-item, #contactForm {
+                padding: 20px;
+            }
+            .cta-button {
+                padding: 12px 28px;
+                font-size: 1rem;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header>
         <div class="container">
-            <h1><i class="fas fa-music"></i> Academia Musical ANAYA MUSICA Y VOZ <i class="fas fa-scroll"></i></h1>
+            <h1><i class="fas fa-music"></i> Academia Musical ANAYA`S MUSICA Y VOZ <i class="fas fa-scroll"></i></h1>
             <p class="tagline">Excelencia y Pasión por la Enseñanza Musical</p>
         </div>
     </header>
