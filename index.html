@@ -3,41 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Bienvenido!</title>
-    <style>
-        /* Estilos básicos para centrar y dar un poco de formato */
-        body {
-            display: flex; /* Habilita Flexbox */
-            flex-direction: column; /* Apila los elementos verticalmente */
-            align-items: center; /* Centra los elementos horizontalmente */
-            justify-content: center; /* Centra los elementos verticalmente */
-            min-height: 100vh; /* Hace que el cuerpo ocupe al menos toda la altura de la ventana */
-            margin: 0; /* Elimina márgenes por defecto del body */
-            font-family: 'Arial', sans-serif; /* Una fuente simple y legible */
-            background-color: #f0f0f0; /* Un color de fondo suave */
-            text-align: center; /* Centra el texto dentro de los elementos */
-            padding: 20px; /* Añade un poco de espacio alrededor */
-            box-sizing: border-box; /* Asegura que el padding no desborde */
-        }
-
-        .content-wrapper {
-            background-color: #ffffff; /* Fondo blanco para el contenido */
-            padding: 30px;
-            border-radius: 10px; /* Bordes redondeados */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-        }
-
-        h1 {
-            color: #333; /* Color oscuro para el título */
-            margin-bottom: 25px; /* Espacio debajo del título */
-        }
-
-        img {
-            max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
-            height: auto;   /* Mantiene la proporción de la imagen */
-            border-radius: 8px; /* Bordes redondeados para la imagen */
-            margin-top: 15px; /* Espacio sobre la imagen */
-        }
-    </style>
+    <title>Clases de Música | Academia [ANAYA MUSIC AND SINGERS]</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Una serif elegante para títulos y una sans-serif limpia para cuerpo -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-music"></i> Academia Musical ANAYA`S MUSICA Y VOZ <i class="fas fa-scroll"></i></h1>
+            <p class="tagline">Excelencia y Pasión por la Enseñanza Musical</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <a href="#clases">Nuestras Clases</a>
+            <a href="#galeria">Galería Inspiradora</a>
+            <a href="#contacto">Contacto e Inscripciones</a>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="container">
+            <h2>Despierta tu Talento. Transforma tu Vida con la Música.</h2>
+            <p>Programas personalizados para todos los niveles, impartidos por músicos profesionales.</p>
+            <a href="#contacto" class="cta-button">Solicitar Información</a>
+        </div>
+    </section>
+
+    <section id="clases" class="container">
+        <h2>Explora Nuestros Programas</h2>
+        <div class="clases-grid">
+            <div class="clase-item">
+                <img src="https://file.garden/Z8NltLNFC1q_3W8R/pianoencerrado.jpeg" alt="Clase de Piano con notas flotando">
+                <h3>Piano y Teclado</h3>
+                <p>Técnica, interpretación y repertorio diverso, desde Bach hasta el Jazz.</p>
+            </div>
+            <div class="clase-item">
+                <img src="https://file.garden/Z8NltLNFC1q_3W8R/violin-pasion.jpeg" alt="Clase de Violín">
+                <h3>Violín y Cuerdas</h3>
+                <p>Desarrolla una bella sonoridad y una técnica depurada en instrumentos de cuerda.</p>
+            </div>
+            <div class="clase-item">
+                <img src="https://file.garden/Z8NltLNFC1q_3W8R/canto-voz.jpeg" alt="Clase de Canto y técnica vocal">
+                <h3>Canto y Educación Vocal</h3>
+                <p>Descubre tu voz única, mejora tu afinación, rango y expresión escénica.</p>
+            </div>
+            <div class="clase-item">
+                <img src="https://file.garden/Z8NltLNFC1q_3W8R/notas-pentagrama.jpeg" alt="Teoría musical con notas en pentagrama">
+                <h3>Lenguaje Musical y Armonía</h3>
+                <p>Comprende la estructura de la música, lee partituras y crea tus propias composiciones.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria-musical-bg">
+        <div id="galeria" class="container">
+            <h2>Momentos Musicales</h2>
+            <p class="subtitulo-galeria">La música en acción: nuestros estudiantes y maestros.</p>
+            <div class="galeria-grid">
+                <div class="galeria-item">
+                    <img src="https://file.garden/Z8NltLNFC1q_3W8R/notasamotonadas.jpeg" alt="Músico tocando piano con notas musicales flotando">
+                    <div class="overlay"><span>Interpretación al Piano</span></div>
+                </div>
+                <div class="galeria-item">
+                    <img src="https://file.garden/Z8NltLNFC1q_3W8R/violin-pasion.jpeg" alt="Músico tocando el violín">
+                    <div class="overlay"><span>Pasión por el Violín</span></div>
+                </div>
+                <div class="galeria-item">
+                    <img src="https://file.garden/Z8NltLNFC1q_3W8R/canto-voz.jpeg" alt="Músico cantando y entrenando su voz">
+                    <div class="overlay"><span>Entrenamiento Vocal</span></div>
+                </div>
+                <div class="galeria-item">
+                    <img src="https://file.garden/Z8NltLNFC1q_3W8R/pianoencerrado.jpeg" alt="Notas musicales bailando dentro de un pentagrama">
+                    <div class="overlay"><span>Armonía en el Pentagrama</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="container">
+        <h2>Inicia Tu Viaje Musical Hoy Mismo</h2>
+        <p>Estamos aquí para responder tus preguntas y ayudarte a encontrar el programa perfecto para ti.</p>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej: Ana Pérez">
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Consulta o Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Estoy interesado/a en las clases de..."></textarea>
+            </div>
+            <button type="submit" class="submit-button"><i class="fab fa-whatsapp"></i> Enviar Consulta por WhatsApp</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Academia Musical Crescendo. Todos los derechos reservados.</p>
+            <p>Contacto: (664) 769-1720 | Email: info@academiacrescendo.com</p>
+        </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/5216647691720?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20las%20clases%20de%20música." class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const mensajeUsuario = document.getElementById('mensaje').value;
+            const telefono = "5216647691720";
+
+            let mensajeWhatsApp = `¡Hola! Mi nombre es ${nombre}.`;
+            if (mensajeUsuario) {
+                mensajeWhatsApp += ` Consulta: ${mensajeUsuario}`;
+            } else {
+                mensajeWhatsApp += ` Me gustaría recibir más información sobre las clases de música.`;
+            }
+
+            const urlWhatsApp = `https://wa.me/${telefono}?text=${encodeURIComponent(mensajeWhatsApp)}`;
+            window.open(urlWhatsApp, '_blank');
+        });
+    </script>
+
+</body>
 </html>
