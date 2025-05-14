@@ -145,7 +145,7 @@ nav a:hover {
 
 /* --- Hero Section --- */
 #hero {
-    background: url('https://file.garden/Z8NltLNFC1q_3W8R/FONDOMUSICAL.png') no-repeat center center/cover;
+    background: url('https://file.garden/Z8NltLNFC1q_3W8R/fondo%20musical2.png') no-repeat center center/cover;
     color: var(--light-text-color);
     text-align: center;
     padding: 100px 20px;
